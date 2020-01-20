@@ -1,0 +1,61 @@
+{% extends ('base.html.twig') %}
+{% block title %} {{ parent() }} | lire l'article {% endblock %}
+
+{% block body %}
+
+        <article class="show">
+
+            <h2>{{ article.title }}</h2>
+            <div class="metadata">Ecrit {{ article.createdAt | date('d/m/Y') }}
+             a {{ article.createdAt | date('H:i') }} dans la categorie {{ article.category.title }}</div>
+                <img src="{{ article.image }}" alt="">
+                 {{ article.content | raw}}
+                    <div class="content">
+                        <p><span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit quia asperiores ad velit voluptatibus eius ratione corporis! Ipsam, illo rerum architecto assumenda amet corporis vero ipsum quaerat non iusto in totam saepe nesciunt repudiandae nemo ullam fuga aut magni dignissimos perferendis nobis aliquid! Accusamus, cumque. Sunt ea similique totam doloremque!</span><span>Nobis asperiores in veniam nesciunt expedita voluptatum iste qui debitis sapiente. Nihil deleniti officia voluptatum pariatur quos iste alias. Hic obcaecati dolor eum, blanditiis facere eveniet atque similique modi voluptatum
+                            perferendis officia quisquam asperiores unde natus porro consequatur et a sed ill
+                            o necessitatibus adipisci omnis mollitia. Beatae a delectus ipsa?</span></p>
+                        <p>
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, esse!</span>
+                            <span>Dolores, voluptatum earum. Quam pariatur autem impedit modi ea aut.</span>
+                            <span>Laudantium fuga placeat veritatis dolores quo ea fugiat impedit consequatur!</span>
+                        </p>
+                </div>
+        </article>
+
+        <section id="commentaire">
+         <h1>{{ article.comments | length}} commentaires :</h1>
+            {% for comment in article.comments %}
+                <div class="comment">
+                    <div class="row">
+                        <div class="col-3">
+                            {{ comment.author}} le ( <small>{{ comment.createdAt | date('d/m/Y a H:i')}}</small> )
+                        </div>
+                        <div class="col-9">
+                            {{ comment.content | raw }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% if app.user %}
+            
+                <h1>Nouveau commentaire !</h1>
+            {{ form_start(commentForm) }}
+
+                {{ form_row(commentForm.author, {'label': "Auteur ", 'attr': {'placeholder': "votre nom"}}) }}
+                {{ form_row(commentForm.content, {'label':"commentaire", 'attr': {'placeholder': " entrer votre commentaire"}}) }}
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">commenter !</button>
+            </div> 
+            {{ form_end(commentForm) }}
+            {% else %}
+
+                <h1>Connecter vous pour commenter!</h1>
+                <div class="form-group">
+                    <a id="a1" href="{{ path('security_login')}}" class="btn btn-warning">Connexion</a>
+                </div>
+            {% endif %}
+        </section>
+        
+
+{% endblock %}

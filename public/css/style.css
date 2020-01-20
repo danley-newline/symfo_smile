@@ -1,0 +1,73 @@
+body{
+    background-color: black;
+    color: white;
+}
+.navbar-toggler{
+    background-color: orange;
+}
+
+.princi{
+    width: 100%;
+}
+#commentaire .form-group{
+    text-align: center;
+}
+ h1{
+    color: white;
+    text-shadow: 2px 4px 5px yellow;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+}
+nav a:hover{
+    color: white;
+}
+nav a{
+    font-weight: bold;
+    color: white;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+.rou{
+    color: red;
+}
+
+.ver{
+    color: green;
+    padding-left: 10%;
+    
+}
+.carousel{
+    margin-bottom: 5%;
+}
+.articles h2{
+    color: green;
+    font-weight: bold;
+    text-shadow: 2px 4px 3px yellow;
+    margin-top: 5%;
+}
+
+.articles img{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.articles {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.show h2{
+    color: white;
+    text-shadow: 2px 4px 5px yellow;
+    font-weight: bold;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.show .content{
+    color: red;
+    font-weight: bold;
+}
